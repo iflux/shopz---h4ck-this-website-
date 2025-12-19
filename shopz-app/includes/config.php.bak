@@ -1,0 +1,18 @@
+<?php
+// Old config - DO NOT USE IN PRODUCTION
+// FLAG{backup_config_exposed}
+
+$db_host = 'localhost';
+$db_name = 'shopz';
+$db_user = 'root';
+$db_pass = 'root';
+
+$admin_user = 'admin';
+$admin_pass = 'admin';
+
+$secret_key = 'supersecretkey123';
+
+// API Keys (old)
+$stripe_key = 'sk_test_xxxxxxxxxxxxxxxxxxxx';
+$sendgrid_key = 'SG.xxxxxxxxxxxxxxxxxxxx';
+?>

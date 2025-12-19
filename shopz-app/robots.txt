@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /backup/
+Disallow: /config/
+Disallow: /dev/
+Disallow: /uploads/
+Disallow: /.git/
+Disallow: /api/internal/
+
+# FLAG{robots_reveal_secrets}
+# TODO: remove before production
+# Admin credentials: admin / admin
+# Dev server: dev.shopz.local

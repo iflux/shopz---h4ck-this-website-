@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  shopz:
+    build:
+      context: ./shopz-app
+      dockerfile: Dockerfile
+    container_name: shopz-vulnerable
+    ports:
+      - "80:80"
+      - "21:21"
+      - "22:22"
+      - "3306:3306"
+      - "8080:8080"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: shopz
+      MYSQL_USER: shopz_user
+      MYSQL_PASSWORD: shopz_pass123
+    volumes:
+      - ./shopz-app:/var/www/html
+      - ./db:/docker-entrypoint-initdb.d
+    networks:
+      - shopz-net
+    restart: unless-stopped
+
+  tracker:
+    build:
+      context: ./tracker
+      dockerfile: Dockerfile
+    container_name: shopz-tracker
+    ports:
+      - "8888:5000"
+    volumes:
+      - tracker-data:/app/data
+    networks:
+      - tracker-net
+    restart: unless-stopped
+
+networks:
+  shopz-net:
+    driver: bridge
+  tracker-net:
+    driver: bridge
+    internal: false
+
+volumes:
+  tracker-data:

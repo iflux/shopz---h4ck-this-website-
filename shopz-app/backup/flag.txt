@@ -1,0 +1,5 @@
+FLAG{directory_listing_open}
+
+This backup was created on 2024-01-15.
+Contains database dump and configuration files.
+Please do not share!
